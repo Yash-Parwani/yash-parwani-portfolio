@@ -39,11 +39,11 @@ export default function AboutMe() {
 
 
       <aside className="col-span-1"></aside>
-      <section className="skill-section mt-20 w-full text-stark h-fit col-span-10 flex-col items-center  rounded-2xl ">
-        <h1 className="  h-fit text-6xl text-center w-max mb-10">
+      <section id="skill-section " className="mt-20 w-full text-stark h-fit col-span-10 flex-col  rounded-2xl ">
+        <h1 className="  h-fit text-6xl w-full text-center mb-10">
           My Skills
         </h1>
-        <div className="skills flex flex-wrap">
+        <div className="skills flex flex-wrap justify-center">
            
         <SkillCard src={"/cpp.png"} text={"CPP"} height={128} width={128}/>
          <SkillCard src={"/dsa.png"} text={"DSA"}height={128} width={128}/>
