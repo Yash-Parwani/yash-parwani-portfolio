@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-export default function Header() {
+export default function Header(props) {
   const router = useRouter();
 
   return (
@@ -18,24 +18,30 @@ export default function Header() {
 
       <div className="col-span-6">
         <div className="px-32 py-3">
-          <h1 className="text-fuchsia-800  text-5xl">Yash Kishore Parwani</h1>
-          <h3 className="text-fuchsia-700 px-28 text-xl">
-            Programmer/Developer
-          </h3>
+          <Link href="/">
+            <button>
+              <h1 className="text-fuchsia-800  text-5xl">
+                Yash Kishore Parwani
+              </h1>
+              <h3 className="text-fuchsia-700 px-28 text-xl">
+                Programmer/Developer
+              </h3>
+            </button>
+          </Link>
         </div>
       </div>
-      {router.pathname === "/aboutme" && 
+      {router.pathname === "/aboutme" && (
         <div className="col-span-2 flex justify-center items-center">
-        <AnchorLink href="#skill-section ">
-          <button className="text-stark text-center py-5 text-2xl w-full ">
-            {" "}
-            My Skills
-          </button>
-        </AnchorLink>
-          </div>
-      }
+          <AnchorLink href="#skill-section ">
+            <button className="text-stark text-center py-5 text-2xl w-full ">
+              {" "}
+              My Skills
+            </button>
+          </AnchorLink>
+        </div>
+      )}
       {router.pathname === "/" && (
-        <Link href="/#projects">
+        <Link href="#projects">
           <button className="text-stark text-center py-5 text-2xl px-auto col-span-2">
             {" "}
             Projects

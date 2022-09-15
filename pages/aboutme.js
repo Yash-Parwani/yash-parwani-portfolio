@@ -1,11 +1,34 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import Footer from "../components/footer";
-import ProjectsCard from "../components/projectsCard";
 import SkillCard from "../components/skillCard";
 
 export default function AboutMe() {
+  const [skills,setSkills] = useState([]);
+  useEffect(() => {
+    async function getSkillsData(){
+      try{
+        const response = await fetch("http://localhost:3000/api/skills");
+        const data = await response.json();
+  
+        setSkills(data);
+      }catch(error){
+        console.log("Error in fetching skills from api . Error msg :",error);
+      }
+         
+    }
+    getSkillsData();
+   
+    
+  }, [])
+
+  if(skills.length == 0){
+    return(
+
+      <p>Data loading</p>
+    );
+  }
+  console.log(skills.data.linkedIn);
   return (
     <div className="bg-void grid grid-cols-12 max-h-full h-full">
       <Head>
@@ -26,13 +49,8 @@ export default function AboutMe() {
 
         <h2 className="text-5xl ">Hello, my name is Yash Parwani.</h2>
         <p className=" container text-xl mt-10">
-          I am currently enrolled at SRM in a four-year curriculum for BTECH in
-          Computer Science and Engineering with a Specialization in Software
-          Engineering. I firmly believe in the adage <span className="text-2xl ">&quot;Attitude is Altitude.&ldquo;</span>
-          There will be times when I do not have a solution, but because of my
-          positive attitude and problem-solving abilities, I am confident that I
-          will be the first to solve it. I enjoy learning new technologies and
-          creating new things.
+          {skills.data.aboutDescStart}<span>{skills.data.aboutDescQuote}</span>{skills.data.aboutDescEnd}
+          
         </p>
       </section>
       <aside className="col-span-1"></aside>
@@ -45,18 +63,14 @@ export default function AboutMe() {
         </h1>
         <div className="skills flex flex-wrap justify-center">
            
-        <SkillCard src={"/cpp.png"} text={"CPP"} height={128} width={128}/>
-         <SkillCard src={"/dsa.png"} text={"DSA"}height={128} width={128}/>
-        <SkillCard src={"/html.png"} text={"HTML"}height={128} width={128}/>
-        <SkillCard src={"/css.png"} text={"CSS"}height={128} width={128}/>
-        <SkillCard src={"/tailwind.png"} text={"TailwindCSS"} height={128} width={128}/>
-        <SkillCard src={"/javascript.png"} text={"Javascript"} height={128} width={128}/>
-        <SkillCard src={"/bootstrap.png"} text={"BootStrap"} height={128} width={128}/>
-        <SkillCard src={"/react.png"} text={"ReactJs"}height={128} width={128}/>
-        <SkillCard src={"/nextjs.png"} text={"NextJs"}height={200} width={512}/>
-        <SkillCard src={"/figma.png"} text={"Figma"}height={128} width={128}/>
-        <SkillCard src={"/firebase.png"} text={"FireBase"}height={128} width={128}/>
-        <SkillCard src={"/github.png"} text={"Github"}height={128} width={128}/>
+        {  skills.data.skillsArr.map((skill)=>{
+          
+          return <SkillCard key={skill.name} src={skill.src} text={skill.name} height={skill.height} width={skill.width}/>
+        })} 
+      
+        
+  
+        
         </div>
       </section>
       <aside className="col-span-1"></aside>
@@ -72,8 +86,9 @@ export default function AboutMe() {
       <aside className="col-span-1"></aside>
 
       {/* footer */}
-      <div className="col-span-12 h-fit ">
-        <Footer />
+      <div className="col-span-12 h-fit w">
+          <Footer linkedIn={skills.data.linkedIn} github = {skills.data.github}/>
+
       </div>
     </div>
   );

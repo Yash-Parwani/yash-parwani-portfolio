@@ -1,12 +1,39 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import Footer from "../components/footer";
 import ProjectsCard from "../components/projectsCard";
 
 
+
 export default function Home() {
+  const [data ,setData] = useState([]);
+  useEffect(() => {
+  //getData fetches data about me
+  async function getData(){
+     try{
+        const response = await fetch("http://localhost:3000/api/hello");
+        const datajson = await response.json();
+        setData(datajson);
+       
+     }
+     catch(error){
+      console.log("Error in fetching from hello api : ",error);
+     }
+  } 
+  getData();
+
+
+  
+
+  }, [])
+
+  //this line of code is return to check if data is fetched or not. since when the page loads for the first time, it will give error saying the particular components do not exist since they have not been fetched yet.
+  //hence we display them this
+
+  if (data.length == 0) return <p>No profile data</p>
   return (
     <div className="bg-void grid grid-cols-12 max-h-full h-full">
       <Head>
@@ -24,12 +51,8 @@ export default function Home() {
               A Developer
             </h2>
             <p className=" max-w-4xl max-w-4xl py-8 text-2xl ">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+
+             <span> {data.data.heroQuote} </span>. {data.data.heroDesc}
             </p>
             <div className="main-ctas grid grid-cols-2 gap-2">
               <AnchorLink href="#projects" >
@@ -83,7 +106,7 @@ export default function Home() {
       </section>
       {/* footer */}
       <div className="col-span-12 h-fit w">
-          <Footer />
+          <Footer linkedIn={data.data.linkedIn} github = {data.data.github}/>
 
       </div>
       

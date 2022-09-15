@@ -22,7 +22,7 @@ const ProjectsCard = () => {
         </div>
       </div>
       <div className={`project-image relative h-80 w-52 -ml-24 `}>
-        <Image src="/Ipod-White.png" layout="fill" />
+        <Image src="/images/Ipod-White.png" layout="fill" />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function Footer() {
+export default function Footer(props) {
+  const {linkedIn,github} = props;
+
   return (
     <footer className="flex flex-col items-center justify-evenly mt-24">
       <div className="logo-image  ">
@@ -11,17 +13,17 @@ export default function Footer() {
         Feel free to connect
       </p>
       <div className="socials w-96 flex justify-evenly mt-3">
-        <Link href="https://www.linkedin.com/in/yash-parwani-5610/">
+        <Link href={linkedIn} target="_blank">
           <button>
             <Image src="/linkedin.png" width={64} height={64} />
           </button>
         </Link>
-        <Link href="https://github.com/Yash-Parwani">
+        <Link href={github} target="_blank">
           <button>
             <Image src="/github.png" width={64} height={64} />
           </button>
         </Link>
-        <Link href="/contactme">
+        <Link href="/contactme" target="_blank">
           <button>
             <Image src="/gmail.png" width={64} height={64} />
           </button>

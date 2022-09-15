@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
 
-    const response = await fs.readFile("./data/aboutme.json","utf-8");
+    const response = await fs.readFile("./data/skills.json","utf-8");
     const data =  JSON.parse(response);
     
    return res.status(200).json({ data: data });

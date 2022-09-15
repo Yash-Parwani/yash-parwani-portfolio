@@ -80,14 +80,18 @@ export default function ContactMe() {
                   <p className="ml-2">Linked-In</p>
                 </button>
               </Link>
+              <Link href="https://www.instagram.com/parwani583/">
+                <a target="_blank"  rel="noopener noreferrer">
+                  <button className="flex mb-4">
+                    <Image src="/instagram.png" width="32" height="32" />
 
-              <button className="flex mb-4">
-                <Image src="/instagram.png" width="32" height="32" />
+                    <p className="ml-2">parwani583</p>
+                  </button>
 
-                <p className="ml-2">parwani583</p>
-              </button>
+                </a>
+              </Link>
 
-              <Link href="https://www.linkedin.com/in/yash-parwani-5610/">
+              <Link href="https://github.com/Yash-Parwani">
                 <button className="flex ">
                   <Image src="/github.png" width="32" height="32" />
 
