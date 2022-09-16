@@ -1,10 +1,41 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import Footer from "../components/footer";
 
 export default function ContactMe() {
+  const [data ,setData] = useState([]);
+
+  useEffect(() => {
+  //getData fetches data about me
+  async function getData(){
+     try{
+       // fetch returns a promise consisting of data in form of string so we need to convert it to JSON using .json()
+        const response = await fetch("http://localhost:3000/api/aboutme");
+        //.json() also returns a promise ,hence async await
+        const datajson = await response.json();
+        setData(datajson);
+       
+     }
+     catch(error){
+      console.log("Error in fetching from hello api : ",error);
+     }
+  } 
+  getData();
+  
+
+
+  
+
+  }, [])
+  
+
+  //this line of code is return to check if data is fetched or not. since when the page loads for the first time, it will give error saying the particular components do not exist since they have not been fetched yet.
+  //hence we display them this
+
+  if (data.length == 0) return <p>No profile data</p>
   return (
     <div className="bg-void grid grid-cols-12 max-h-full h-full">
       <Head>
@@ -106,7 +137,7 @@ export default function ContactMe() {
 
       {/* footer */}
       <div className="col-span-12 h-fit ">
-        <Footer />
+        <Footer linkedIn={data.data.linkedIn} github = {data.data.github}/>
       </div>
     </div>
   );

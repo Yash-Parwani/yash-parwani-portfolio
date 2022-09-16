@@ -2,9 +2,15 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import SkillCard from "../components/skillCard";
+import Image from "next/image";
+import useDownloader from "react-use-downloader";
 
 export default function AboutMe() {
+  const { size, elapsed, percentage, download,
+    cancel, error, isInProgress } =
+useDownloader();
   const [skills,setSkills] = useState([]);
+
   useEffect(() => {
     async function getSkillsData(){
       try{
@@ -28,7 +34,9 @@ export default function AboutMe() {
       <p>Data loading</p>
     );
   }
-  console.log(skills.data.linkedIn);
+  const fileUrl = "/Yash-Kishore-Parwani-resume.pdf";
+  const filename = "Yash-Kishore-Parwani-resume.pdf";
+ 
   return (
     <div className="bg-void grid grid-cols-12 max-h-full h-full">
       <Head>
@@ -81,6 +89,19 @@ export default function AboutMe() {
         <h1 className="  h-fit text-6xl text-center w-max mb-10">
           Resume
         </h1>
+        
+                <button className="rounded-full text-center w-96 text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16 mb-10"
+                onClick={()=>{
+                  download(fileUrl,filename);
+                }}>
+                  <Image src="/pdf.png" width={24} height ={24}/>
+                  Download Resume
+                </button>
+              
+        <div >
+
+          <Image src="/Yash-Kishore-Parwani-resume.png" width={2733} height={3867.75}/>
+        </div>
 
       </section>
       <aside className="col-span-1"></aside>

@@ -1,36 +1,36 @@
 {
-    "projects":[
+    "projectsArr":[
         {
             "name":"iPod Clone",
             "desc":"A Tribute to the OG music player, implementing all functionality it served",
-            "project-image":"/images/Ipod-White.png",
+            "image":"/images/Ipod-White.png",
             "skills":["React","ZingTouch","Css"],
-            "github-url":"https://github.com/Yash-Parwani/ipod.js",
-            "project-status":"completed"
+            "github":"https://github.com/Yash-Parwani/ipod.js",
+            "status":"completed"
         },
         {
             "name":"Image Gallery",
             "desc":"Serving images as per users requirement using Pixabay. Learnt api calls",
-            "project-image":"/images/gallery.png",
+            "image":"/images/gallery.png",
             "skills":["React","TailwindCSS"],
-            "github-url":"https://github.com/Yash-Parwani/image-gallery-tailwind",
-            "project-status":"completed"
+            "github":"https://github.com/Yash-Parwani/image-gallery-tailwind",
+            "status":"completed"
         },
         {
             "name":"Cart",
             "desc":"Creating a cart to order items using Firebase.Learnt basic CRUD operation",
-            "project-image":"/images/cart.png",
+            "image":"/images/cart.png",
             "skills":["React","Firebase","API calling"],
-            "github-url":"https://github.com/Yash-Parwani/cart",
-            "project-status":"completed"
+            "github":"https://github.com/Yash-Parwani/cart",
+            "status":"completed"
         },
         {
             "name":"DripDrop",
             "desc":"Creating a website where we can deliver blood in emergency and also do blood donation",
-            "project-image":"/images/cart.png",
+            "image":"/images/dripdrop.png",
             "skills":["React","Css"],
-            "github-url":"https://github.com/Yash-Parwani/dripdrop",
-            "project-status":"ongoing"
+            "github":"https://github.com/Yash-Parwani/dripdrop",
+            "status":"ongoing"
         }
     
         
