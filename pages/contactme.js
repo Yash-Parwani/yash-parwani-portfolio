@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useRef} from "react";
+import emailjs from "@emailjs/browser"
 
 import Footer from "../components/footer";
 
 export default function ContactMe() {
+  const form = useRef();
   const [data ,setData] = useState([]);
+  
 
   useEffect(() => {
   //getData fetches data about me
@@ -36,6 +39,20 @@ export default function ContactMe() {
   //hence we display them this
 
   if (data.length == 0) return <p>No profile data</p>
+
+  const sendMail = (event)=>{
+    event.preventDefault();
+    
+    emailjs.sendForm('contact_service','contact_form',form.current,process.env.REACT_APP_EMAILJS_KEY)
+    .then((result) => {
+      console.log(result.text);
+      event.target.reset();
+  }, (error) => {
+      console.log(error.text);
+      event.target.reset();
+  });
+  }
+
   return (
     <div className="bg-void grid grid-cols-12 max-h-full h-full">
       <Head>
@@ -53,28 +70,30 @@ export default function ContactMe() {
           {/* left side */}
           <div className="contact-form ">
             <h3 className="text-3xl mb-5">Contact</h3>
-            <form>
+            <form ref={form} onSubmit={sendMail}>
               <div className="flex flex-col mb-10">
-                <label htmlFor="name" className="text-xl">
+                <label htmlFor="user_name" className="text-xl">
                   Name{" "}
                 </label>
 
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="user_name"
                   className="border bg-void  rounded-md w-96 h-10 mt-4"
+                  required
                 />
               </div>
               <div className="flex flex-col  mb-10">
-                <label htmlFor="email" className="text-xl">
+                <label htmlFor="user_email" className="text-xl">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="user_email"
                   className="bg-void border rounded-md h-10  mt-4"
+                  required
                 />
               </div>
               <div className="flex flex-col mb-10">
@@ -86,7 +105,14 @@ export default function ContactMe() {
                   id="message"
                   name="message"
                   className="bg-void border rounded-sm h-24 mt-4"
+                  required
                 />
+              </div>
+              <div className="flex flex-col mb-10">
+               
+              <button type="submit" className="rounded-full text-center w-full text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16">
+                  <span><Image src="/images/send.png" width={24} height={24}/></span>Submit
+                </button>
               </div>
             </form>
           </div>

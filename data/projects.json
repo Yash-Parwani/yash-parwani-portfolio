@@ -3,10 +3,13 @@
         {
             "name":"iPod Clone",
             "desc":"A Tribute to the OG music player, implementing all functionality it served",
-            "image":"/images/Ipod-White.png",
+            "image":"/images/iPod.png",
             "skills":["React","ZingTouch","Css"],
             "github":"https://github.com/Yash-Parwani/ipod.js",
-            "status":"completed"
+            "status":"completed",
+            "width":"190",
+            "height":"340",
+            "ml":"4"
         },
         {
             "name":"Image Gallery",
@@ -14,7 +17,10 @@
             "image":"/images/gallery.png",
             "skills":["React","TailwindCSS"],
             "github":"https://github.com/Yash-Parwani/image-gallery-tailwind",
-            "status":"completed"
+            "status":"completed",
+            "width":"500",
+            "height":"300",
+            "ml":"8"
         },
         {
             "name":"Cart",
@@ -22,7 +28,10 @@
             "image":"/images/cart.png",
             "skills":["React","Firebase","API calling"],
             "github":"https://github.com/Yash-Parwani/cart",
-            "status":"completed"
+            "status":"completed",
+            "width":"475",
+            "height":"350",
+            "ml":"2"
         },
         {
             "name":"DripDrop",
@@ -30,7 +39,10 @@
             "image":"/images/dripdrop.png",
             "skills":["React","Css"],
             "github":"https://github.com/Yash-Parwani/dripdrop",
-            "status":"ongoing"
+            "status":"ongoing",
+            "width":"417",
+            "height":"275",
+            "ml":"7"
         }
     
         

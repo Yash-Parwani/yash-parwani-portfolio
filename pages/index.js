@@ -86,12 +86,13 @@ export default function Home() {
       <aside className="col-span-1"></aside>
       <section
         id="projects"
-        className="h-screen col-span-10 flex flex-col items-center  "
+        className="h-fit col-span-10 flex flex-col   "
       >
-        <h1 className="text-stark  h-fit text-6xl text-center w-max mb-10">
+        <h1 className="text-stark  h-fit text-6xl px-20  mb-10">
           Projects
         </h1>
-        <div className="flex flex-wrap justify-evenly items-center">
+        <div className="flex px-20
+         flex-wrap  items-center">
           {projectsArr.map((project) => {
             return (
               <ProjectsCard
@@ -101,10 +102,14 @@ export default function Home() {
                 skills={project.skills}
                 github={project.github}
                 status={project.status}
+                width={project.width}
+                height={project.height}
+                ml={project.ml}
                 key={project.name}
               />
             );
           })}
+          
         </div>
       </section>
       <aside className="col-span-1"></aside>
