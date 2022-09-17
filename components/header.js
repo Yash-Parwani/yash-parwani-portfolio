@@ -7,7 +7,7 @@ export default function Header(props) {
   const router = useRouter();
 
   return (
-    <div className="bg-void grid grid-cols-12">
+    <div className="bg-void grid grid-cols-12 ">
       <div className="logo-image fixed top-0 left-0 ">
         <Link href="/">
           <button>

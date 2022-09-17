@@ -76,9 +76,9 @@ export default function Home() {
             </div>
           </div>
         </article>
-        <aside className="col-span-2  flex justify-end h-fit">
+        <aside className="col-span-2   -my-28 bottom-28 flex justify-end h-fit">
           <div className="">
-            <Image src="/Jason-2fuchsia-1.png" width={760} height={680} />
+            <Image src="/images/yash.png" width={640} height={770} />
           </div>
         </aside>
       </section>

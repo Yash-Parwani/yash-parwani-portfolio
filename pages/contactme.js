@@ -42,14 +42,13 @@ export default function ContactMe() {
 
   const sendMail = (event)=>{
     event.preventDefault();
-    
-    emailjs.sendForm('contact_service','contact_form',form.current,process.env.REACT_APP_EMAILJS_KEY)
+    emailjs.sendForm('contact_service','contact_form',form.current,`${process.env.NEXT_PUBLIC_EMAILJS_KEY}`)
     .then((result) => {
       console.log(result.text);
       event.target.reset();
   }, (error) => {
       console.log(error.text);
-      event.target.reset();
+      
   });
   }
 
@@ -111,7 +110,7 @@ export default function ContactMe() {
               <div className="flex flex-col mb-10">
                
               <button type="submit" className="rounded-full text-center w-full text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16">
-                  <span><Image src="/images/send.png" width={24} height={24}/></span>Submit
+              Submit <span><Image src="/images/send.png" width={24} height={24}/></span>
                 </button>
               </div>
             </form>
