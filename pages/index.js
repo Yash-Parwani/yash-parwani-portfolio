@@ -63,23 +63,13 @@ export default function Home() {
               <span> {data.data.heroQuote} </span>. {data.data.heroDesc}
             </p>
             <div className="main-ctas grid grid-cols-2 gap-2">
-              <AnchorLink href="#projects">
-                <button className="rounded-full text-center w-full text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16">
-                  Projects
-                </button>
-              </AnchorLink>
-              <Link href="#">
-                <button className="rounded-full text-center text-3xl bg-fuchsia-800  text-stark py-2 h-16">
-                  About Me
-                </button>
-              </Link>
+              <AnchorLink href="#projects"><button className="rounded-full text-center w-full text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16">Projects</button></AnchorLink>
+              <Link href="/aboutme"><button className="rounded-full text-center text-3xl bg-fuchsia-800  text-stark py-2 h-16"> About Me</button></Link>
             </div>
           </div>
         </article>
         <aside className="col-span-2   -my-28 bottom-28 flex justify-end h-fit">
-          <div className="">
-            <Image src="/images/yash.png" width={640} height={770} />
-          </div>
+          
         </aside>
       </section>
       {/* projects section */}

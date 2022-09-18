@@ -15,9 +15,8 @@ export default function Header(props) {
           </button>
         </Link>
       </div>
-
       <div className="col-span-6">
-        <div className="px-32 py-3">
+        <div className="px-32 ">
           <Link href="/">
             <button>
               <h1 className="text-fuchsia-800  text-5xl">
@@ -30,44 +29,40 @@ export default function Header(props) {
           </Link>
         </div>
       </div>
+      <div className="col-span-2 flex justify-center items-center">
       {router.pathname === "/aboutme" && (
-        <div className="col-span-2 flex justify-center items-center">
-          <AnchorLink href="#skill-section ">
-            <button className="text-stark text-center py-5 text-2xl w-full ">
-              {" "}
-              My Skills
-            </button>
-          </AnchorLink>
-        </div>
-      )}
+          <AnchorLink href="#skill-section "><button className="text-stark text-center py-5 text-2xl w-full "> My Skills</button></AnchorLink>
+          )}
       {router.pathname === "/" && (
-        <Link href="#projects">
+        <AnchorLink href="#projects">
           <button className="text-stark text-center py-5 text-2xl px-auto col-span-2">
-            {" "}
             Projects
           </button>
-        </Link>
+        </AnchorLink>
       )}
       {router.pathname === "/contactme" && (
         <Link href="/">
           <button className="text-stark text-center py-5 text-2xl px-auto col-span-2">
-            {" "}
             Home
           </button>
         </Link>
       )}
-
+      </div>
+      <div className="col-span-2 flex justify-center items-center">
       <Link href="/aboutme">
         <button className="text-stark text-center py-5 text-2xl px-auto col-span-2">
+          {" "}
           About Me
         </button>
       </Link>
+      </div>
+      <div className="col-span-2 flex justify-center items-center">
       <Link href="/contactme">
-        <button className="text-stark text-center rounded-md mr-2 bg-jewel py-5 text-2xl px-auto col-span-2">
-          {" "}
-          Hire Me
+        <button className="text-stark text-center rounded-md mr-2 bg-jewel w-full py-5 text-2xl px-auto col-span-2">
+          Hire Me{" "}
         </button>
       </Link>
+      </div>
     </div>
   );
 }

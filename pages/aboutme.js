@@ -6,9 +6,15 @@ import Image from "next/image";
 import useDownloader from "react-use-downloader";
 
 export default function AboutMe() {
-  const { size, elapsed, percentage, download,
-    cancel, error, isInProgress } =
-useDownloader();
+  const {
+    size,
+    elapsed,
+    percentage,
+    download,
+    cancel,
+    error,
+    isInProgress,
+  } = useDownloader();
   const [skills,setSkills] = useState([]);
 
   useEffect(() => {
@@ -90,13 +96,9 @@ useDownloader();
           Resume
         </h1>
         
-                <button className="rounded-full text-center w-96 text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16 mb-10"
-                onClick={()=>{
-                  download(fileUrl,filename);
-                }}>
-                  <Image src="/pdf.png" width={24} height ={24}/>
-                  Download Resume
-                </button>
+                <button className="rounded-full text-center w-96 text-3xl bg-jewel hover:bg-darkJewel text-stark py-2 h-16 mb-10" onClick={()=>{
+                  download(fileUrl,filename)
+                }}><Image src="/pdf.png" width={24} height ={24}/> Download Resume</button>
               
         <div >
 
