@@ -68,8 +68,10 @@ export default function Home() {
             </div>
           </div>
         </article>
-        <aside className="col-span-2   -my-28 bottom-28 flex justify-end h-fit">
-          
+        <aside className="col-span-2 flex justify-end h-fit">
+          <div className="">
+            <Image src="/images/yash.png" width={575} height={775}/>
+          </div>
         </aside>
       </section>
       {/* projects section */}
